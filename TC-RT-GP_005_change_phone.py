@@ -25,7 +25,7 @@ def test_TC_RT_GP_005(selenium):
 
    input_field_id = 'address'
    input_field = selenium.find_element('id', input_field_id)
-   input_field.send_keys('sf.gp.rt.2023@gmail.com')
+   input_field.send_keys('+79000000000')
 
    time.sleep(10)
 
@@ -41,9 +41,9 @@ def test_TC_RT_GP_005(selenium):
 
    time.sleep(1)
 
-   change_email_name = 'otp_back_phone'
-   change_email = selenium.find_element('name', change_email_name)
-   change_email.click()
+   change_phone_name = 'otp_back_phone'
+   change_phone = selenium.find_element('name', change_phone_name)
+   change_phone.click()
 
    time.sleep(5)
 

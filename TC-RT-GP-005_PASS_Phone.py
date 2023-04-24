@@ -21,34 +21,24 @@ def test_TC_RT_GP_005(selenium):
    login_link =  selenium.find_element('xpath', login_link_xpath)
    login_link.click()
 
-   time.sleep(10)
+   time.sleep(5)
 
    input_field_id = 'address'
    input_field = selenium.find_element('id', input_field_id)
-   input_field.send_keys('sf.gp.rt.2023@gmail.com')
+   input_field.send_keys('+79188505515')
 
-   time.sleep(10)
+   time.sleep(5)
 
    get_code_button_name = 'otp_get_code'
    get_code_button = selenium.find_element('name', get_code_button_name)
    get_code_button.submit()
 
-   time.sleep(10)
+   time.sleep(5)
 
    h1_class = 'card-container__title'
    h1 = selenium.find_element(By.CLASS_NAME, h1_class)
    assert h1.text == 'Код подтверждения отправлен'
 
-   time.sleep(1)
-
-   change_email_name = 'otp_back_phone'
-   change_email = selenium.find_element('name', change_email_name)
-   change_email.click()
-
    time.sleep(5)
 
-   h2_class = 'card-container__title'
-   h2 = selenium.find_element(By.CLASS_NAME, h2_class)
-   assert h2.text == 'Авторизация по коду'
 
-   time.sleep(5)
