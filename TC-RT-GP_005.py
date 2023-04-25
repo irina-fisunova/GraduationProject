@@ -11,51 +11,67 @@ from selenium.webdriver.common.by import By
 
 def test_TC_RT_GP_005(selenium):
    selenium.get('https://rostov.rt.ru/')
+
    burger_button_xpath = '/html/body/div[2]/div/div/header/div[1]/div[1]/div/div[2]/div[1]'
    burger_button = selenium.find_element('xpath', burger_button_xpath)
    burger_button.click()
 
-   time.sleep(5)
+   time.sleep(10)
 
    login_link_xpath = '/html/body/div[2]/div/div/header/div[1]/div[1]/div/div[2]/div[4]/div/div/div/div/div/a'
    login_link =  selenium.find_element('xpath', login_link_xpath)
    login_link.click()
 
-   time.sleep(5)
+   time.sleep(10)
 
    password_button_name = 'standard_auth_btn'
    password_button = selenium.find_element('name', password_button_name)
    password_button.click()
 
-   time.sleep(10)
+   time.sleep(5)
 
    h1_class = 'card-container__title'
    h1 = selenium.find_element(By.CLASS_NAME, h1_class)
    assert h1.text == 'Авторизация'
 
-   time.sleep(5)
+   time.sleep(2)
 
    password_phone_id = 't-btn-tab-phone'
    password_phone = selenium.find_element('id', password_phone_id)
    password_phone.click()
 
-   time.sleep(5)
+   time.sleep(2)
 
    input_phone_id = 'username'
    input_phone = selenium.find_element('id', input_phone_id)
    input_phone.send_keys('+79188505515')
 
-   time.sleep(5)
+   time.sleep(2)
 
    input_password_id = 'password'
    input_password = selenium.find_element('id', input_password_id)
    input_password.send_keys('SFGpRT2023')
 
-   time.sleep(5)
+   time.sleep(2)
 
    get_password_button_name = 'login'
    get_password_button = selenium.find_element('name', get_password_button_name)
    get_password_button.submit()
 
-   time.sleep(5)
+   time.sleep(15)
 
+   selenium.refresh()
+
+   time.sleep(10)
+
+   burger_2_button_xpath = '/html/body/div[2]/div/div/header/div[1]/div[1]/div/div[2]/div[1]/div[2]'
+   burger_2_button = selenium.find_element('xpath', burger_2_button_xpath)
+   burger_2_button.click()
+
+   time.sleep(10)
+
+   h1_personal_account_class = 'rtk-user-panel__link'
+   h1_personal_account = selenium.find_element(By.CLASS_NAME, h1_personal_account_class)
+   assert h1_personal_account.text == 'Личный кабинет'
+
+   time.sleep(5)
