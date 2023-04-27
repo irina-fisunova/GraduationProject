@@ -1,3 +1,12 @@
+# Тест-кейс: TC-RT-GP_003
+#
+# Описание: Проверить, что при вводе клиентом некорректного номера
+# телефона система выдает сообщение "Введите телефон в формате +7ХХХХХХХХХХ
+# или +375XXXXXXXXX,или email в формате example@email.ru"
+#
+# Ссылка на тест-кейс: https://docs.google.com/spreadsheets/d/1PE9EcK4a1cdgjxku7rX65zSYG03LKn5U/edit#gid=171164967
+
+
 import time
 from selenium.webdriver.common.by import By
 
@@ -17,7 +26,7 @@ def test_TC_RT_GP_005(selenium):
 
    input_field_id = 'address'
    input_field = selenium.find_element('id', input_field_id)
-   input_field.send_keys('1')
+   input_field.send_keys('000')
 
    time.sleep(5)
 
@@ -30,9 +39,5 @@ def test_TC_RT_GP_005(selenium):
    h_number_error_class = 'rt-input-container__meta rt-input-container__meta--error'
    h_number_error = selenium.find_element(By.CLASS_NAME, h_number_error_class)
    assert h_number_error.text == 'Введите телефон в формате +7ХХХХХХХХХХ или +375XXXXXXXXX, или email в формате example@email.ru'
-
-   #h1_class = 'card-container__title'
-   #h1 = selenium.find_element(By.CLASS_NAME, h1_class)
-   #assert h1.text == 'Код подтверждения отправлен'
 
    time.sleep(5)

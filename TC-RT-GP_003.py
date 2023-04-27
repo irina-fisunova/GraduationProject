@@ -1,3 +1,14 @@
+# Тест-кейс: TC-RT-GP_003
+#
+# Описание: Проверить, что при вводе клиентом мобильного номера
+# телефона система отправляет код на введеный номер. Открывается окно для ввода кода.
+# После введения кода система система аутенфицирует клиента.
+#
+# Ссылка на тест-кейс: https://docs.google.com/spreadsheets/d/1PE9EcK4a1cdgjxku7rX65zSYG03LKn5U/edit#gid=1226354536
+#
+# Примечание: Автотест предполагает открытие окна для ввода кода как успешный результат, т.к. ввести полученный код
+# на телефон не представляется возможным.
+
 import time
 from selenium.webdriver.common.by import By
 
@@ -31,34 +42,12 @@ def test_TC_RT_GP_005(selenium):
    h1 = selenium.find_element(By.CLASS_NAME, h1_class)
    assert h1.text == 'Код подтверждения отправлен'
 
-   code_0_id = 'rt-code-0'
-   code_0 = selenium.find_element('id', code_0_id)
-   code_0.send_keys('1')
-
-   code_1_id = 'rt-code-1'
-   code_1 = selenium.find_element('id', code_1_id)
-   code_1.send_keys('1')
-
-   code_2_id = 'rt-code-2'
-   code_2 = selenium.find_element('id', code_2_id)
-   code_2.send_keys('1')
-
-   code_3_id = 'rt-code-3'
-   code_3 = selenium.find_element('id', code_3_id)
-   code_3.send_keys('1')
-
-   code_4_id = 'rt-code-4'
-   code_4 = selenium.find_element('id', code_4_id)
-   code_4.send_keys('1')
-
-   code_5_id = 'rt-code-5'
-   code_5 = selenium.find_element('id', code_5_id)
-   code_5.send_keys('1')
-
-   time.sleep(30)
-
-   h_error_class = 'code-input-container__error'
-   h_error = selenium.find_element(By.CLASS_NAME, h_error_class)
-   assert h_error.text == 'Неверный код. Повторите попытку'
-
    time.sleep(5)
+
+
+
+
+
+
+
+
