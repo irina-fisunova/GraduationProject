@@ -12,7 +12,7 @@
 import time
 from selenium.webdriver.common.by import By
 
-def test_TC_RT_GP_005(selenium):
+def test_TC_RT_GP_003(selenium):
    selenium.get('https://rostov.rt.ru/')
    burger_button_xpath = '/html/body/div[2]/div/div/header/div[1]/div[1]/div/div[2]/div[1]'
    burger_button = selenium.find_element('xpath', burger_button_xpath)

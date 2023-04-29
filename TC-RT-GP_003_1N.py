@@ -1,4 +1,4 @@
-# Тест-кейс: TC-RT-GP_003
+# Тест-кейс: TC-RT-GP_003_1N
 #
 # Описание: Проверить, что при вводе клиентом некорректного номера
 # телефона система выдает сообщение "Введите телефон в формате +7ХХХХХХХХХХ
@@ -10,7 +10,7 @@
 import time
 from selenium.webdriver.common.by import By
 
-def test_TC_RT_GP_005(selenium):
+def test_TC_RT_GP_003_1N(selenium):
    selenium.get('https://rostov.rt.ru/')
    burger_button_xpath = '/html/body/div[2]/div/div/header/div[1]/div[1]/div/div[2]/div[1]'
    burger_button = selenium.find_element('xpath', burger_button_xpath)

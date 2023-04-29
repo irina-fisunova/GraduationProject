@@ -12,7 +12,7 @@
 import time
 from selenium.webdriver.common.by import By
 
-def test_TC_RT_GP_002(selenium):
+def test_TC_RT_GP_002_1N(selenium):
    selenium.get('https://rostov.rt.ru/')
 
    time.sleep(5)
