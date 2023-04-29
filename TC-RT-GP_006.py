@@ -1,10 +1,10 @@
-# Тест-кейс: TC-RT-GP_005
-# Описание: Проверить, что при вводе клиентом мобильного номера
-# телефона система отправляет код на введеный номер. После введения
-# кода система система аутенфицирует клиента.
-# Ссылка на тест-кейс: https://docs.google.com/spreadsheets/d/1PE9EcK4a1cdgjxku7rX65zSYG03LKn5U/edit#gid=1226354536
-# Примечание: Автотест предполагает открытие окна для ввода кода как успешный результат, т.к. получить код приходящий
-# на телефон не представляется возможным.
+# Тест-кейс: TC-RT-GP_006
+#
+# Описание: Проверить, что при вводе клиентом корректного,  но ошибочного
+# адреса электронной ночты, из формы "Код подтверждения отправлен", нажав
+# кнопку "Изменить почту", система откроет форму "Авторизация".
+
+#Ссылка на тест-кейс: https://docs.google.com/spreadsheets/d/1PE9EcK4a1cdgjxku7rX65zSYG03LKn5U/edit#gid=228646860
 
 import time
 from selenium.webdriver.common.by import By
@@ -25,7 +25,7 @@ def test_TC_RT_GP_005(selenium):
 
    input_field_id = 'address'
    input_field = selenium.find_element('id', input_field_id)
-   input_field.send_keys('+79000000000')
+   input_field.send_keys('sf.gp.rt.2023@gmail.com')
 
    time.sleep(10)
 
@@ -41,9 +41,9 @@ def test_TC_RT_GP_005(selenium):
 
    time.sleep(1)
 
-   change_phone_name = 'otp_back_phone'
-   change_phone = selenium.find_element('name', change_phone_name)
-   change_phone.click()
+   change_email_name = 'otp_back_phone'
+   change_email = selenium.find_element('name', change_email_name)
+   change_email.click()
 
    time.sleep(5)
 

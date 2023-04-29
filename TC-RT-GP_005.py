@@ -1,11 +1,10 @@
 # Тест-кейс: TC-RT-GP_005
 #
-# Описание: Авторизация клиента по временному коду. Изменение номера мобильного
-# телефона после открытия окна "Код подтверждения отправлен" с помощью кнопки
-# "Изменить номер" с последующим возвращением в форму "Авторизация".
+# Описание: Проверить, что при вводе клиентом корректного,  но ошибочного
+# номера мобильного, из формы "Код подтверждения отправлен", нажав кнопку
+# "Изменить номер", система откроет форму "Авторизация".
 #
-# Ссылка на тест-кейс:https://docs.google.com/spreadsheets/d/1PE9EcK4a1cdgjxku7rX65zSYG03LKn5U/edit#gid=1773265845
-
+# Ссылка на тест-кейс: https://docs.google.com/spreadsheets/d/1PE9EcK4a1cdgjxku7rX65zSYG03LKn5U/edit#gid=1773265845
 
 import time
 from selenium.webdriver.common.by import By
@@ -26,7 +25,7 @@ def test_TC_RT_GP_005(selenium):
 
    input_field_id = 'address'
    input_field = selenium.find_element('id', input_field_id)
-   input_field.send_keys('sf.gp.rt.2023@gmail.com')
+   input_field.send_keys('+79000000000')
 
    time.sleep(10)
 
@@ -42,9 +41,9 @@ def test_TC_RT_GP_005(selenium):
 
    time.sleep(1)
 
-   change_email_name = 'otp_back_phone'
-   change_email = selenium.find_element('name', change_email_name)
-   change_email.click()
+   change_phone_name = 'otp_back_phone'
+   change_phone = selenium.find_element('name', change_phone_name)
+   change_phone.click()
 
    time.sleep(5)
 
