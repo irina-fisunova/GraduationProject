@@ -14,12 +14,8 @@ from selenium.webdriver.support import expected_conditions as EC
 def test_TC_RT_GP_010(selenium):
    selenium.get('https://rostov.rt.ru/')
 
-   def check_exists(id):
-      try:
-         selenium.find_element(By.ID)
-      except NoSuchElementException:
-         return False
-      return True
+   def is_hidden(param, locator):
+      return selenium.find_element(param, locator).value_of_css_property('display') == 'none'
 
    time.sleep(10)
 
@@ -32,7 +28,7 @@ def test_TC_RT_GP_010(selenium):
    time.sleep(2)
 
    cookies_container_id = 'cookie-notification'
-   assert check_exists(cookies_container_id) == False
+   assert is_hidden(By.ID, cookies_container_id) == True
 
    selenium.save_screenshot('screenshots/TC-RT-GP_010_after.png')
 

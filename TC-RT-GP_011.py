@@ -17,12 +17,31 @@ def test_TC_RT_GP_011(selenium):
 
    time.sleep(15)
 
-   burger_2_button_xpath = '/html/body/div[2]/div/div/footer/div[1]/div[3]/div/div/div/div[1]/div/div/div'
-   burger_2_button = selenium.find_element('xpath', burger_2_button_xpath)
+   def is_hidden(param, locator):
+      return selenium.find_element(param, locator).value_of_css_property('display') == 'none'
+
+   time.sleep(5)
+
+   cookies_button_xpath = '/html/body/div[2]/div/div/div[1]/div[13]/div/div/div/div/div/div/div[2]/button'
+   cookies_button = selenium.find_element('xpath', cookies_button_xpath)
+   cookies_button.click()
+
+   time.sleep(5)
+
+   cookies_container_id = 'cookie-notification'
+   assert is_hidden(By.ID, cookies_container_id) == True
+
+   mobile_app_xpath = '/html/body/div[2]/div/div/footer/div[1]/div[3]/div/div/div/div[1]/div/div/div'
+   mobile_app = selenium.find_element('xpath', mobile_app_xpath)
 
    actions = ActionChains(selenium)
-   actions.move_to_element(burger_2_button)
-   actions.click(burger_2_button).perform()
+   actions.move_to_element(mobile_app)
+   actions.click(mobile_app).perform()
 
-   time.sleep(15)
+   time.sleep(5)
+
+   qr_code_xpath = '/html/body/div[4]'
+   assert is_hidden(By.XPATH, qr_code_xpath) == False
+
+   selenium.save_screenshot('screenshots/TC-RT-GP_011.png')
 
