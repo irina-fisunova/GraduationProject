@@ -17,7 +17,7 @@ def test_TC_RT_GP_010(selenium):
    def is_hidden(param, locator):
       return selenium.find_element(param, locator).value_of_css_property('display') == 'none'
 
-   time.sleep(10)
+   time.sleep(5)
 
    selenium.save_screenshot('screenshots/TC-RT-GP_010_before.png')
 

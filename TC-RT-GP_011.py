@@ -15,12 +15,10 @@ from selenium.webdriver.support import expected_conditions as EC
 def test_TC_RT_GP_011(selenium):
    selenium.get('https://rostov.rt.ru/')
 
-   time.sleep(15)
+   time.sleep(5)
 
    def is_hidden(param, locator):
       return selenium.find_element(param, locator).value_of_css_property('display') == 'none'
-
-   time.sleep(5)
 
    cookies_button_xpath = '/html/body/div[2]/div/div/div[1]/div[13]/div/div/div/div/div/div/div[2]/button'
    cookies_button = selenium.find_element('xpath', cookies_button_xpath)
@@ -44,4 +42,3 @@ def test_TC_RT_GP_011(selenium):
    assert is_hidden(By.XPATH, qr_code_xpath) == False
 
    selenium.save_screenshot('screenshots/TC-RT-GP_011.png')
-
