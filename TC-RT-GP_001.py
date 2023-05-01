@@ -12,7 +12,7 @@
 
 import time
 
-from selenium.common import NoSuchElementException
+from selenium.common import NoSuchElementException, ElementNotInteractableException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -22,9 +22,16 @@ def test_TC_RT_GP_001(selenium):
 
    time.sleep(15)
 
-   burger_button_xpath = '/html/body/div[2]/div/div/header/div[1]/div[1]/div/div[2]/div[1]'
-   burger_button = selenium.find_element('xpath', burger_button_xpath)
-   burger_button.click()
+   try:
+      burger_button_xpath = '/html/body/div[2]/div/div/header/div[1]/div[1]/div/div[2]/div[1]'
+      burger_button = selenium.find_element('xpath', burger_button_xpath)
+      burger_button.click()
+   except NoSuchElementException as e:
+      print(e.msg)
+   except ElementNotInteractableException as e:
+      print(e.msg)
+   finally:
+      print("Element: burger_button")
 
    time.sleep(2)
 
@@ -79,12 +86,6 @@ def test_TC_RT_GP_001(selenium):
    except NoSuchElementException as e:
       print(e.msg)
 
-   # burger_2_button_xpath = '/html/body/div[2]/div/div/header/div[1]/div[1]/div/div[2]/div[1]/div[2]'
-   # burger_2_button = selenium.find_element('xpath', burger_2_button_xpath)
-   # burger_2_button.click()
-
-   # time.sleep(10)
-
    try:
       h1_personal_account_class = 'rtk-user-panel__link'
       h1_personal_account = WebDriverWait(selenium, 10).until(
@@ -93,3 +94,4 @@ def test_TC_RT_GP_001(selenium):
       assert h1_personal_account.text == 'Личный кабинет'
    except NoSuchElementException as e:
       print(e.msg)
+
