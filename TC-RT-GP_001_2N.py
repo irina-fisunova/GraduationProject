@@ -11,6 +11,7 @@
 
 import time
 from selenium.webdriver.common.by import By
+from settings import valid_number_phone, invalid_password
 
 def test_TC_RT_GP_001_2N(selenium):
    selenium.get('https://rostov.rt.ru/')
@@ -58,13 +59,13 @@ def test_TC_RT_GP_001_2N(selenium):
 
    input_phone_id = 'username'
    input_phone = selenium.find_element('id', input_phone_id)
-   input_phone.send_keys('+79188505515')
+   input_phone.send_keys(valid_number_phone)
 
    time.sleep(2)
 
    input_password_id = 'password'
    input_password = selenium.find_element('id', input_password_id)
-   input_password.send_keys('SFGpRT2022')
+   input_password.send_keys(invalid_password)
 
    time.sleep(2)
 

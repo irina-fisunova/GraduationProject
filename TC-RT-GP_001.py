@@ -11,6 +11,7 @@
 # авторизацией клинта.
 
 import time
+from settings import valid_number_phone, valid_password
 
 from selenium.common import NoSuchElementException, ElementNotInteractableException
 from selenium.webdriver.common.by import By
@@ -63,11 +64,11 @@ def test_TC_RT_GP_001(selenium):
 
    input_phone_id = 'username'
    input_phone = selenium.find_element('id', input_phone_id)
-   input_phone.send_keys('+79188505515')
+   input_phone.send_keys(valid_number_phone)
 
    input_password_id = 'password'
    input_password = selenium.find_element('id', input_password_id)
-   input_password.send_keys('SFGpRT2023')
+   input_password.send_keys(valid_password)
 
    get_password_button_name = 'login'
    get_password_button = selenium.find_element('name', get_password_button_name)

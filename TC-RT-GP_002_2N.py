@@ -11,6 +11,7 @@
 
 import time
 from selenium.webdriver.common.by import By
+from settings import valid_email, invalid_password
 
 def test_TC_RT_GP_002_2N(selenium):
    selenium.get('https://rostov.rt.ru/')
@@ -58,13 +59,13 @@ def test_TC_RT_GP_002_2N(selenium):
 
    input_email_id = 'username'
    input_email = selenium.find_element('id', input_email_id)
-   input_email.send_keys('sf.gp.rt.2023@gmail.com')
+   input_email.send_keys(valid_email)
 
    time.sleep(2)
 
    input_password_id = 'password'
    input_password = selenium.find_element('id', input_password_id)
-   input_password.send_keys('SFGpRT2022')
+   input_password.send_keys(invalid_password)
 
    time.sleep(2)
 

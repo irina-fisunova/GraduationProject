@@ -9,6 +9,7 @@
 
 import time
 from selenium.webdriver.common.by import By
+from settings import invalid_number_phone
 
 def test_TC_RT_GP_003_1N(selenium):
    selenium.get('https://rostov.rt.ru/')
@@ -50,7 +51,7 @@ def test_TC_RT_GP_003_1N(selenium):
 
    input_field_id = 'address'
    input_field = selenium.find_element('id', input_field_id)
-   input_field.send_keys('NOMER')
+   input_field.send_keys(invalid_number_phone)
 
    selenium.save_screenshot('screenshots/TC-RT-GP_003_1N_input.png')
 
