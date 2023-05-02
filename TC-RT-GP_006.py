@@ -10,7 +10,6 @@ import time
 from selenium.webdriver.common.by import By
 from settings import wrong_email, close_confirm_and_cookies
 
-
 def test_TC_RT_GP_006(selenium):
    selenium.get('https://rostov.rt.ru/')
 

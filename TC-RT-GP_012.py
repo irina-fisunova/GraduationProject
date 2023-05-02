@@ -7,7 +7,6 @@
 
 import time
 from settings import is_exist
-from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 def test_TC_RT_GP_012(selenium):

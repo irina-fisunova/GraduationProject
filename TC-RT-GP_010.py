@@ -5,11 +5,7 @@
 # Ссылка на тест-кейс: https://docs.google.com/spreadsheets/d/1PE9EcK4a1cdgjxku7rX65zSYG03LKn5U/edit#gid=914327329
 
 import time
-
-from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 def test_TC_RT_GP_010(selenium):
    selenium.get('https://rostov.rt.ru/')
