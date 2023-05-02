@@ -11,24 +11,12 @@
 
 import time
 from selenium.webdriver.common.by import By
-from settings import valid_number_phone
+from settings import valid_number_phone, close_confirm_and_cookies
 
 def test_TC_RT_GP_003(selenium):
    selenium.get('https://rostov.rt.ru/')
 
-   time.sleep(5)
-
-   confirm_region_button_xpath = '/html/body/div[2]/div/div/header/div[1]/div[1]/div/div[2]/div[5]/div/div/div[2]/div[3]/button[1]'
-   confirm_region_button = selenium.find_element(By.XPATH, confirm_region_button_xpath)
-   confirm_region_button.click()
-
-   time.sleep(1)
-
-   cookies_button_xpath = '/html/body/div[2]/div/div/div[1]/div[13]/div/div/div/div/div/div/div[2]/button'
-   cookies_button = selenium.find_element('xpath', cookies_button_xpath)
-   cookies_button.click()
-
-   time.sleep(1)
+   close_confirm_and_cookies(selenium)
 
    burger_button_xpath = '/html/body/div[2]/div/div/header/div[1]/div[1]/div/div[2]/div[4]/div/div/div/div/div/a/span'
    burger_button = selenium.find_element('xpath', burger_button_xpath)
