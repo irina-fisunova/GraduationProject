@@ -14,17 +14,41 @@ from selenium.webdriver.common.by import By
 
 def test_TC_RT_GP_003(selenium):
    selenium.get('https://rostov.rt.ru/')
-   burger_button_xpath = '/html/body/div[2]/div/div/header/div[1]/div[1]/div/div[2]/div[1]'
+
+   time.sleep(5)
+
+   confirm_region_button_xpath = '/html/body/div[2]/div/div/header/div[1]/div[1]/div/div[2]/div[5]/div/div/div[2]/div[3]/button[1]'
+   confirm_region_button = selenium.find_element(By.XPATH, confirm_region_button_xpath)
+   confirm_region_button.click()
+
+   time.sleep(1)
+
+   cookies_button_xpath = '/html/body/div[2]/div/div/div[1]/div[13]/div/div/div/div/div/div/div[2]/button'
+   cookies_button = selenium.find_element('xpath', cookies_button_xpath)
+   cookies_button.click()
+
+   time.sleep(1)
+
+   burger_button_xpath = '/html/body/div[2]/div/div/header/div[1]/div[1]/div/div[2]/div[4]/div/div/div/div/div/a/span'
    burger_button = selenium.find_element('xpath', burger_button_xpath)
    burger_button.click()
 
+   time.sleep(10)
+
+   h1_class = 'card-container__title'
+   h1 = selenium.find_element(By.CLASS_NAME, h1_class)
+   if h1.text == 'Авторизация':
+      temporary_code_button_name = 'back_to_otp_btn'
+      temporary_code_button = selenium.find_element('name', temporary_code_button_name)
+      temporary_code_button.click()
+
    time.sleep(5)
 
-   login_link_xpath = '/html/body/div[2]/div/div/header/div[1]/div[1]/div/div[2]/div[4]/div/div/div/div/div/a'
-   login_link =  selenium.find_element('xpath', login_link_xpath)
-   login_link.click()
+   h1_class = 'card-container__title'
+   h1 = selenium.find_element(By.CLASS_NAME, h1_class)
+   assert h1.text == 'Авторизация по коду'
 
-   time.sleep(5)
+   time.sleep(2)
 
    input_field_id = 'address'
    input_field = selenium.find_element('id', input_field_id)
@@ -42,7 +66,9 @@ def test_TC_RT_GP_003(selenium):
    h1 = selenium.find_element(By.CLASS_NAME, h1_class)
    assert h1.text == 'Код подтверждения отправлен'
 
-   time.sleep(5)
+   selenium.save_screenshot('screenshots/TC-RT-GP_003.png')
+
+   time.sleep(2)
 
 
 

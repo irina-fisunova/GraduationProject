@@ -18,21 +18,30 @@ def test_TC_RT_GP_002(selenium):
 
    time.sleep(5)
 
-   burger_button_xpath = '/html/body/div[2]/div/div/header/div[1]/div[1]/div/div[2]/div[1]'
+   confirm_region_button_xpath = '/html/body/div[2]/div/div/header/div[1]/div[1]/div/div[2]/div[5]/div/div/div[2]/div[3]/button[1]'
+   confirm_region_button = selenium.find_element(By.XPATH, confirm_region_button_xpath)
+   confirm_region_button.click()
+
+   time.sleep(1)
+
+   cookies_button_xpath = '/html/body/div[2]/div/div/div[1]/div[13]/div/div/div/div/div/div/div[2]/button'
+   cookies_button = selenium.find_element('xpath', cookies_button_xpath)
+   cookies_button.click()
+
+   time.sleep(1)
+
+   burger_button_xpath = '/html/body/div[2]/div/div/header/div[1]/div[1]/div/div[2]/div[4]/div/div/div/div/div/a/span'
    burger_button = selenium.find_element('xpath', burger_button_xpath)
    burger_button.click()
 
    time.sleep(10)
 
-   login_link_xpath = '/html/body/div[2]/div/div/header/div[1]/div[1]/div/div[2]/div[4]/div/div/div/div/div/a'
-   login_link =  selenium.find_element('xpath', login_link_xpath)
-   login_link.click()
-
-   time.sleep(2)
-
-   password_button_name = 'standard_auth_btn'
-   password_button = selenium.find_element('name', password_button_name)
-   password_button.click()
+   h1_class = 'card-container__title'
+   h1 = selenium.find_element(By.CLASS_NAME, h1_class)
+   if h1.text == 'Авторизация по коду':
+      password_button_name = 'standard_auth_btn'
+      password_button = selenium.find_element('name', password_button_name)
+      password_button.click()
 
    time.sleep(5)
 
@@ -75,6 +84,8 @@ def test_TC_RT_GP_002(selenium):
    burger_2_button.click()
 
    time.sleep(5)
+
+   selenium.save_screenshot('screenshots/TC-RT-GP_002.png')
 
    h1_personal_account_class = 'rtk-user-panel__link'
    h1_personal_account = selenium.find_element(By.CLASS_NAME, h1_personal_account_class)
