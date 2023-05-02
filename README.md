@@ -13,6 +13,6 @@ Selenium использовался в проете, так как предос�
 
 Тест-кейсы: https://docs.google.com/spreadsheets/d/1PE9EcK4a1cdgjxku7rX65zSYG03LKn5U/edit#gid=363686659
 
-В результате проведения автотестов были выявлены баги. 
+В результате проведения автотестов был составлен баг-репорт. 
 
-Баги: https://docs.google.com/spreadsheets/d/1o277-PG9PlziuaYeFcfdXVSFDc9q9w06/edit#gid=900731753
+Баг-репорт: https://docs.google.com/spreadsheets/d/1o277-PG9PlziuaYeFcfdXVSFDc9q9w06/edit#gid=900731753
