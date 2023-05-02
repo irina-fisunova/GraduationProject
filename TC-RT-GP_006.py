@@ -8,6 +8,8 @@
 
 import time
 from selenium.webdriver.common.by import By
+from settings import wrong_email
+
 
 def test_TC_RT_GP_006(selenium):
    selenium.get('https://rostov.rt.ru/')
@@ -49,7 +51,7 @@ def test_TC_RT_GP_006(selenium):
 
    input_field_id = 'address'
    input_field = selenium.find_element('id', input_field_id)
-   input_field.send_keys('sf.gp.rt.2023@gmail.com')
+   input_field.send_keys(wrong_email)
 
    time.sleep(10)
 

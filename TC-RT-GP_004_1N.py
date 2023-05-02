@@ -9,6 +9,7 @@
 
 import time
 from selenium.webdriver.common.by import By
+from settings import invalid_email
 
 def test_TC_RT_GP_004_1N(selenium):
    selenium.get('https://rostov.rt.ru/')
@@ -50,7 +51,7 @@ def test_TC_RT_GP_004_1N(selenium):
 
    input_field_id = 'address'
    input_field = selenium.find_element('id', input_field_id)
-   input_field.send_keys('pochta.cm')
+   input_field.send_keys(invalid_email)
 
    selenium.save_screenshot('screenshots/TC-RT-GP_004_1N_input.png')
 

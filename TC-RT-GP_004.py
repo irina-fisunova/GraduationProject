@@ -11,6 +11,7 @@
 
 import time
 from selenium.webdriver.common.by import By
+from settings import valid_email
 
 def test_TC_RT_GP_004(selenium):
    selenium.get('https://rostov.rt.ru/')
@@ -52,7 +53,7 @@ def test_TC_RT_GP_004(selenium):
 
    input_field_id = 'address'
    input_field = selenium.find_element('id', input_field_id)
-   input_field.send_keys('sf.gp.rt.2023@gmail.com')
+   input_field.send_keys(valid_email)
 
    time.sleep(5)
 
